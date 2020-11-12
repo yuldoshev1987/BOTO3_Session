@@ -1,6 +1,36 @@
+The core concept of boto3
+	Session
+	Resource
+	Client
+	Meta
+	Collections
+	Waiters
+	Paginators
+===================================================================================	
+
+	Resource and Client
+	boto3.resource is a high-level object-oriented service access and it 
+	is availible for some of aws service 
+	import boto3
+	s3 = boto3.resource("s3")
+	bucket = s3.Bucket('mybucket')
+
+	# now bucket is "attached" the S3 bucket name "mybucket"
+	print(bucket)
+	# s3.Bucket(name='mybucket')
+
+	print(dir(bucket))
+	#show you all class method action you may perform
+	boto3.client are low level, you don't have an "entry-class object", 
+	
+
+
 ============Creating of boto3 Session object====================
 Session :
 	store configuration information (primarily credentials of AWS root account or AWS IAM user account and selected region)
+	stores configuration information (primarily credentials and selected region)
+	allows you to create service clients and resources
+	boto3 creates a default session for you when needed
 	
 There are two type os sessions:
 	Custom Session
@@ -17,4 +47,4 @@ aws configure --profile p-name
 		print(bucket["Name"])
 		
 NOTE: If you do not declare your profile , it will take your default profile 
-if you have multiple IAM user with different IAM role , you can mention in your code		
+if you have multiple IAM user with different IAM role , you can mention in your code			
